@@ -1,7 +1,55 @@
+# ----------------------------- Zig: build ------------------------------
+# Cache của trình build (đổi tên qua nhiều version)
 .zig-cache/
 zig-cache/
+# Cache thư mục cục bộ do Zig quản lý (pkg manager / global cache)
 zig-pkg/
+.zig-pkg/
+zig-global-cache/
+# Thư mục output chính thức (`zig build` -> zig-out/bin, zig-out/lib, ...)
 zig-out/
-
-
+.zig-out/
+# ------------------------- Zig: object / raw output --------------------
+# Các object files khi build thủ công bằng zig build-obj/build-exe
+*.o
+*.obj
+*.a
+*.lib
+*.so
+*.so.*
+*.dylib
+*.dll
+# ---------------------- Hệ điều hành: macOS / Windows -------------------
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+.fseventsd
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+# ------------------------- Editor / IDE --------------------------------
+.vscode/
+.idea/
+.fleet/
+*.swp
+*.swo
+*~
+.#*
+\#*\#
+.ropeproject/
+# --------------------- Công cụ / log / temp ----------------------------
+*.log
+*.tmp
+*.temp
+*.bak
+*.orig
+coverage/
+*.prof
+*.gcda
+*.gcno
+.env
+.env.*
+!.env.example
