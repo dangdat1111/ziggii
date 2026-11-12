@@ -52,6 +52,4 @@ coverage/
 *.gcno
 .env
 .env.*
-!.env.examle
-hdbdđ
-dhdhshdhdhwj
+!.env.example
