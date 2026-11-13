@@ -18,8 +18,19 @@ pub fn main() !void {
 
     // String literals & unicode code point literals
     // String : *const [N:0]u8
-    const bytes = "hello";
-    @TypeOf(bytes) == *const [5:0]u8;
+        //const bytes = "hello";
+        //@TypeOf(bytes) == *const [5:0]u8;
 
+    //array
+    const a : [5]u8 = [5]u8{1,2,3,4,5};
+    std.debug.print("a : {any}\n", .{a});
+
+    // Để Zig tự đếm số phần tử bằng dấu gạch dưới `_` (rất phổ biến)
+    const b = [_]u32{1,2,3,34,5,56,12};
+    std.debug.print("len of b : {}\n", .{b.len});
+
+    // Nối hai mảng tại thời điểm biên dịch bằng toán tử `++`
+    const c = [_]i32{1,2} ++ [_]i32{3,4};
+    std.debug.print("c : {any}\n", .{c});
 
 }
