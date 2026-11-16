@@ -50,8 +50,8 @@ cũng vậy — `TODO: @atomic rmw`), với nội dung duy nhất:
 > coroutines as low-level primitives."*
 
 Dịch giữ ý: **"Async functions đã bị regression kể từ bản 0.11.0. Kế hoạch hiện tại là giới thiệu lại
-chúng như một primitive cấp thấp làm nền cho các implementation I/O.** (Theo dõi qua proposal
-'stackless coroutines as low-level primitives'.)"
+chúng như một primitive cấp thấp làm nền cho các implementation I/O."** (Theo dõi qua proposal
+'stackless coroutines as low-level primitives'.)
 
 Hệ quả trực tiếp: từ 0.11 trở đi **không còn** `async fn` / `await` / `suspend` / `resume` /
 `nosuspend` / `anyframe` / `cancel` trong Zig — chúng không còn **là từ khoá**, compiler thậm chí không
@@ -252,8 +252,9 @@ pub const Mutex = extern struct {
   ```
 
   Ví dụ dưới dùng `lockUncancelable` (trả `void`) cho gọn.
-- Cạnh đó còn `std.atomic.Mutex` (enum `{unlocked, locked}`) chỉ có `tryLock`/`unlock`, không khoá
-  block — dành cho ngữ cảnh comptime/test.
+- Cạnh đó còn `std.atomic.Mutex` (enum `{unlocked, locked}`) chỉ có `tryLock`/`unlock`, **không có
+  khoá block** — chỉ dùng khi chắc chắn không cần chờ đợi (tranh chấp xảy ra thì `tryLock` trả
+  `false`); với luồng thật hãy ưu tiên `std.Io.Mutex`.
 
 ### 3.2 Counter an toàn bằng Mutex
 
